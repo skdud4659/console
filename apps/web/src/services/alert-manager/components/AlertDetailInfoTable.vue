@@ -136,7 +136,8 @@ const getAssetInfo = (assetId: string) => {
                         <p class="resource-item truncate">
                             {{ item?.name }}
                         </p>
-                        <p-link :text="i18n.t('ALERT_MANAGER.ALERTS.VIEW_RESOURCE')"
+                        <p-link v-if="item.asset_id"
+                                :text="i18n.t('ALERT_MANAGER.ALERTS.VIEW_RESOURCE')"
                                 :to="{
                                     name: ASSET_INVENTORY_ROUTE.CLOUD_SERVICE.DETAIL._NAME,
                                     params: getAssetInfo(item.asset_id)

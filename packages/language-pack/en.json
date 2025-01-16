@@ -25,7 +25,6 @@
 			"DETAILS": "Details",
 			"DURATION": "Duration",
 			"ERROR": "Error",
-			"EVENT_DETAILS": "Event Details",
 			"EVENT_PUSHED": "Event pushed",
 			"HEALTHY": "Healthy",
 			"HIGH": "High",
@@ -46,6 +45,7 @@
 			"MONTH": "per month",
 			"NONE": "None",
 			"NOTE": "Note",
+			"NOTIFICATION_RESULTS": "Notification Results",
 			"NOTIFIED": "Notified",
 			"NOT_AVAILABLE": "Not Available",
 			"NO_EVENT": "No Event",
@@ -333,6 +333,7 @@
 			"MSG_FORMAT": "Message Format",
 			"NO_DATA": "No accessible webhook",
 			"REQUEST": "Request",
+			"SHOW_ALL": "Show all",
 			"TITLE": "Webhook",
 			"TO": "To",
 			"TOTAL": "Total: {cnt}",
@@ -1177,6 +1178,7 @@
 			"SIGN_IN": "Go to Sign In",
 			"TITLE": "The link has expired"
 		},
+		"FAILURE": "Failure",
 		"FNB": {
 			"PRIVACY": "Privacy Policy",
 			"PRIVACY_MSG": "Will be updated",
