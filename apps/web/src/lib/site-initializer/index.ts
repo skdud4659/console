@@ -18,8 +18,8 @@ import { useUserStore } from '@/store/user/user-store';
 
 import config from '@/lib/config';
 import APIClientManager from '@/lib/config/global-config/api-client-manager';
+import { DEFAULT_CONFIG } from '@/lib/config/global-config/constants/constants';
 import featureSchemaManager from '@/lib/config/global-config/feature-schema-manager';
-import { mergeConfig } from '@/lib/config/global-config/helpers/merge-config';
 import type { GlobalServiceConfig } from '@/lib/config/global-config/types/type';
 import { initRequestIdleCallback } from '@/lib/request-idle-callback-polyfill';
 import { initAmcharts5 } from '@/lib/site-initializer/amcharts5';
@@ -98,15 +98,16 @@ const init = async () => {
     try {
         await config.init();
         await initApiConnectorAndAuth(config);
+        await config.loadPublicConfig();
         const domainId = await initDomain(config);
         const userId = await initUserAndToken(config);
-        const mergedConfig = await mergeConfig(config, domainId);
-        await APIClientManager.initialize(mergedConfig);
+        const serviceConfig = config.get('SERVICES') || DEFAULT_CONFIG;
+        await APIClientManager.initialize(serviceConfig);
         initDomainSettings();
         await initModeSetting();
         await initWorkspace(userId);
-        await initOpsFlowTaskManagementTemplate(mergedConfig);
-        await featureSchemaManager.initialize(mergedConfig);
+        await initOpsFlowTaskManagementTemplate(serviceConfig);
+        await featureSchemaManager.initialize(serviceConfig);
         initErrorHandler();
         initRouter(domainId);
         // prefetchResources();
