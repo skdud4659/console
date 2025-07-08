@@ -3,7 +3,7 @@ import kebabCase from 'lodash/kebabCase';
 
 import { SpaceConnector } from '@cloudforet/core-lib/space-connector';
 
-import { DEFAULT_VERSION } from '@/lib/config/global-config/constants/constants';
+import { UNVERSIONED_MENU_DEFAULT, VERSIONED_MENU_DEFAULT } from '@/lib/config/global-config/constants/constants';
 import { ApiClientEndpoint } from '@/lib/config/global-config/schema/api-client-schema';
 import type { ApiClientsSchemaType, GlobalServiceConfig } from '@/lib/config/global-config/types/type';
 
@@ -45,7 +45,7 @@ class APIClientManager {
 
         Object.entries(this.config).forEach(([serviceName, config]) => {
             if (this.apiClientsSchema?.[serviceName]) {
-                const version = config.VERSION || DEFAULT_VERSION;
+                const version = config.VERSION || UNVERSIONED_MENU_DEFAULT || VERSIONED_MENU_DEFAULT;
                 const endpoint = this.apiClientsSchema[serviceName][version];
                 if (endpoint) {
                     const formattedEndpoint = APIClientManager.formatEndpoint(endpoint);

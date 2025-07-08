@@ -9,31 +9,34 @@ export const SERVICE_FEATURES = {
     IAM: 'IAM',
 } as const;
 
-export const DEFAULT_VERSION = 'V1';
+// NOTE: The default version for menus without versioning.
+export const UNVERSIONED_MENU_DEFAULT = 'V1';
+// NOTE: The default version of the open-source 'Alert Manager, Project' is V1.
+export const VERSIONED_MENU_DEFAULT = 'V2';
 
 export const DEFAULT_CONFIG = {
     DASHBOARDS: {
         ENABLED: true,
-        VERSION: DEFAULT_VERSION,
+        VERSION: UNVERSIONED_MENU_DEFAULT,
     },
     PROJECT: {
         ENABLED: true,
-        VERSION: DEFAULT_VERSION,
+        VERSION: VERSIONED_MENU_DEFAULT,
     },
     SERVICE_ACCOUNT: {
         ENABLED: true,
-        VERSION: DEFAULT_VERSION,
+        VERSION: UNVERSIONED_MENU_DEFAULT,
     },
     ASSET_INVENTORY: {
         ENABLED: true,
-        VERSION: DEFAULT_VERSION,
+        VERSION: UNVERSIONED_MENU_DEFAULT,
     },
     COST_ANALYSIS: {
         ENABLED: true,
-        VERSION: DEFAULT_VERSION,
+        VERSION: UNVERSIONED_MENU_DEFAULT,
     },
     ALERT_MANAGER: {
         ENABLED: true,
-        VERSION: DEFAULT_VERSION,
+        VERSION: VERSIONED_MENU_DEFAULT,
     },
 };
